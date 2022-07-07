@@ -71,6 +71,11 @@ function _goto_main {
         # General case
         if [ -n "$(command -v the_real_goto.py)" ]; then
             the_real_goto.py "$PROJECT" "$@"
+
+        # Windows
+        elif [ -n "$(command -v the_real_goto.exe)" ]; then
+            the_real_goto.exe "$PROJECT" "$@"
+
         else
             echo "Error the_real_goto.py not found" >&2
             return 1
